@@ -74,6 +74,7 @@ function initializeApp() {
     } else {
         document.getElementById('profileInfo').classList.toggle('hidden');
         document.getElementById('system-random').classList.toggle('hidden');
+        document.getElementById('liffLogoutButton').classList.toggle('hidden');
         document.getElementById('liffLogoutButton').disabled = true;
     }
 }
