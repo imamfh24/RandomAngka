@@ -69,7 +69,9 @@ function initializeApp() {
     // check if the user is logged in/out, and disable inappropriate button
     if (liff.isLoggedIn()) {
         document.getElementById('liffLoginButton').disabled = true;
+        profile();
     } else {
+        document.getElementById('profileInfo').classList.toggle('hidden');
         document.getElementById('liffLogoutButton').disabled = true;
     }
 }
@@ -80,25 +82,7 @@ function initializeApp() {
 function displayLiffData() {
     document.getElementById('isInClient').textContent = liff.isInClient();
     document.getElementById('isLoggedIn').textContent = liff.isLoggedIn();
-    liff.getProfile().then(function(profile) {
-        document.getElementById('displayNameField').textContent = profile.displayName;
-
-        const profilePictureDiv = document.getElementById('profilePictureDiv');
-        if (profilePictureDiv.firstElementChild) {
-            profilePictureDiv.removeChild(profilePictureDiv.firstElementChild);
-        }
-        const img = document.createElement('img');
-        img.src = profile.pictureUrl;
-        img.alt = 'Profile Picture';
-        img.width = 100;
-        img.height = 100;
-        img.style.textAlign = 'center';
-        profilePictureDiv.appendChild(img);
-
-        document.getElementById('statusMessageField').textContent = profile.statusMessage;
-    }).catch(function(error) {
-        window.alert('Error getting profile: ' + error);
-    });
+    
 }
 
 /**
@@ -108,6 +92,7 @@ function displayIsInClientInfo() {
     if (liff.isInClient()) {
         document.getElementById('liffLoginButton').classList.toggle('hidden');
         document.getElementById('liffLogoutButton').classList.toggle('hidden');
+        
         document.getElementById('isInClientMessage').textContent = 'You are opening the app in the in-app browser of LINE.';
     } else {
         document.getElementById('isInClientMessage').textContent = 'You are opening the app in an external browser.';
@@ -186,4 +171,26 @@ function toggleElement(elementId) {
     } else {
         elem.style.display = 'block';
     }
+}
+
+function profile (){
+    liff.getProfile().then(function(profile) {
+        document.getElementById('displayNameField').textContent = profile.displayName;
+
+        const profilePictureDiv = document.getElementById('profilePictureDiv');
+        if (profilePictureDiv.firstElementChild) {
+            profilePictureDiv.removeChild(profilePictureDiv.firstElementChild);
+        }
+        const img = document.createElement('img');
+        img.src = profile.pictureUrl;
+        img.alt = 'Profile Picture';
+        img.width = 100;
+        img.height = 100;
+        img.style.textAlign = 'center';
+        profilePictureDiv.appendChild(img);
+
+        document.getElementById('statusMessageField').textContent = profile.statusMessage;
+    }).catch(function(error) {
+        window.alert('Error getting profile: ' + error);
+    });
 }

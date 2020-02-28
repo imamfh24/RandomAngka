@@ -25,7 +25,7 @@
                     <h5>Profile</h5>
                     <div id="profilePictureDiv">
                     </div>
-                    <table>
+                    <table class="text-center">
                         <tr>
                             <th>Nama : </th>
                             <td id="displayNameField"></td>
@@ -37,21 +37,29 @@
                     </table>
                 </div>
 
-                <form class="mx-auto" action="post">
-                    <div class="form-row align-items-center m-5">
-                        <div class="form-group">
-                            <label for="inputAddress">Masukkan Batas Angka</label>
-                            <input type="number" class="form-control" id="batasAngka" name="batasAngka" placeholder="0 - 9999" min="0" max="9999" value="0">
-                            
-                        </div>
-                            <button type="submit" id="randomAngka" class="btn btn-primary" style="margin-top: 15px;">Random Angka</button>
-                    </div>
-                </form>
-
-                <div class="mx-auto">
-                    <h2>Hasil Angka Random</h2>
-                    <h2 id="hasilRandom" class="text-center mb-5" style="font-size: 100px;">0</h2>
+                <div class="buttonGroup">
+                    <button id="liffLoginButton" class="btn btn-success btn-small">Log in</button>
+                    <button id="liffLogoutButton" class="btn btn-warning btn-small">Log out</button>
                 </div>
+
+                <div id="system-random">
+                    <form class="mx-auto" action="post">
+                        <div class="m-5">
+                            <div class="form-group">
+                                <label for="inputAddress">Masukkan Batas Angka</label>
+                                <input type="number" class="form-control" id="batasAngka" name="batasAngka" placeholder="0 - 9999" min="0" max="9999" value="0">
+                                
+                            </div>
+                                <button type="submit" id="randomAngka" class="btn btn-primary" style="margin-top: 15px;">Random Angka</button>
+                        </div>
+                    </form>
+    
+                    <div class="mx-auto">
+                        <h2>Hasil Angka Random</h2>
+                        <h2 id="hasilRandom" class="text-center mb-5" style="font-size: 100px;">0</h2>
+                    </div>
+                </div>
+
 
             </div>
         </section>
@@ -85,11 +93,12 @@
                     </tr>
                 </table>
             </div>
-            <!-- LOGIN LOGOUT BUTTONS -->
+            <!-- LOGIN LOGOUT BUTTONS 
             <div class="buttonGroup">
                 <button id="liffLoginButton" class="btn btn-success btn-small">Log in</button>
                 <button id="liffLogoutButton" class="btn btn-warning btn-small">Log out</button>
             </div>
+            -->
             <div id="statusMessage">
                 <div id="isInClientMessage"></div>
                 <div id="apiReferenceMessage">
