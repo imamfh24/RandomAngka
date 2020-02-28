@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Angka by IFA</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <header class="text-center">
+            <h1>Random Angka</h1>
+            <small>by Imam Faried(IFA)</small>
+        </header>
+
+        <section>
+            <div class="card">
+
+                <form class="mx-auto" action="post">
+                    <div class="form-row align-items-center m-5">
+                        <div class="form-group">
+                            <label for="inputAddress">Masukkan Batas Angka</label>
+                            <input type="number" class="form-control" id="batasAngka" name="batasAngka" placeholder="0 - 9999" min="0" max="9999" value="0">
+                            
+                        </div>
+                            <button type="submit" id="randomAngka" class="btn btn-primary" style="margin-top: 15px;">Random Angka</button>
+                    </div>
+                </form>
+
+                <div class="mx-auto">
+                    <h2>Hasil Angka Random</h2>
+                    <h2 id="hasilRandom" class="text-center mb-5" style="font-size: 100px;">0</h2>
+                </div>
+
+            </div>
+        </section>
+
+        
+
+    </div>
+
+
+
+
+    <!-- Script -->
+
+    <script src="script.js"></script>
+    <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+    <script src="liff-starter.js"></script>
+</body>
+
+</html>
