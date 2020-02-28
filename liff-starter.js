@@ -80,6 +80,24 @@ function initializeApp() {
 function displayLiffData() {
     document.getElementById('isInClient').textContent = liff.isInClient();
     document.getElementById('isLoggedIn').textContent = liff.isLoggedIn();
+    liff.getProfile().then(function(profile) {
+        document.getElementById('userIdProfileField').textContent = profile.userId;
+        document.getElementById('displayNameField').textContent = profile.displayName;
+
+        const profilePictureDiv = document.getElementById('profilePictureDiv');
+        if (profilePictureDiv.firstElementChild) {
+            profilePictureDiv.removeChild(profilePictureDiv.firstElementChild);
+        }
+        const img = document.createElement('img');
+        img.src = profile.pictureUrl;
+        img.alt = 'Profile Picture';
+        profilePictureDiv.appendChild(img);
+
+        document.getElementById('statusMessageField').textContent = profile.statusMessage;
+        toggleProfileData();
+    }).catch(function(error) {
+        window.alert('Error getting profile: ' + error);
+    });
 }
 
 /**
@@ -102,7 +120,7 @@ function registerButtonHandlers() {
     // openWindow call
     document.getElementById('openWindowButton').addEventListener('click', function() {
         liff.openWindow({
-            url: 'https://catatanliffv2.herokuapp.com/', // Isi dengan Endpoint URL aplikasi web Anda
+            url: 'https://random-angka-ifa.herokuapp.com/', // Isi dengan Endpoint URL aplikasi web Anda
             external: true
         });
     });
@@ -123,9 +141,9 @@ function registerButtonHandlers() {
         } else {
             liff.sendMessages([{
                 'type': 'text',
-                'text': "Anda telah menggunakan fitur Send Message!"
+                'text': "Terima Kasih sudah menggunakan aplikasi Random Angka by IFA"
             }]).then(function() {
-                window.alert('Ini adalah pesan dari fitur Send Message');
+                window.alert('Anda Mengirim Pesan');
             }).catch(function(error) {
                 window.alert('Error sending message: ' + error);
             });
