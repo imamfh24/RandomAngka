@@ -81,7 +81,6 @@ function displayLiffData() {
     document.getElementById('isInClient').textContent = liff.isInClient();
     document.getElementById('isLoggedIn').textContent = liff.isLoggedIn();
     liff.getProfile().then(function(profile) {
-        document.getElementById('userIdProfileField').textContent = profile.userId;
         document.getElementById('displayNameField').textContent = profile.displayName;
 
         const profilePictureDiv = document.getElementById('profilePictureDiv');
