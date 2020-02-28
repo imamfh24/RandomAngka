@@ -90,10 +90,11 @@ function displayLiffData() {
         const img = document.createElement('img');
         img.src = profile.pictureUrl;
         img.alt = 'Profile Picture';
+        img.width = 100;
+        img.height = 100;
         profilePictureDiv.appendChild(img);
 
         document.getElementById('statusMessageField').textContent = profile.statusMessage;
-        toggleProfileData();
     }).catch(function(error) {
         window.alert('Error getting profile: ' + error);
     });
