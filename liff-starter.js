@@ -92,6 +92,7 @@ function displayLiffData() {
         img.alt = 'Profile Picture';
         img.width = 100;
         img.height = 100;
+        img.style.textAlign = 'center';
         profilePictureDiv.appendChild(img);
 
         document.getElementById('statusMessageField').textContent = profile.statusMessage;
