@@ -191,7 +191,7 @@ function profile (){
         img.style.textAlign = 'center';
         profilePictureDiv.appendChild(img);
 
-        document.getElementById('statusMessageField').textContent = profile.statusMessage;
+        // document.getElementById('statusMessageField').textContent = profile.statusMessage;
     }).catch(function(error) {
         window.alert('Error getting profile: ' + error);
     });
